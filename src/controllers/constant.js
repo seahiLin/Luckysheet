@@ -1,5 +1,6 @@
 import locale from '../locale/locale';
 import Store from '../store';
+import { v4 } from 'uuid'
 import luckysheetConfigsetting from './luckysheetConfigsetting';
 import { getObjType } from '../utils/util';
 import { createToolbarHtml } from './toolbar';
@@ -907,7 +908,7 @@ const luckysheetlodingHTML = function (target, coverConfig) {
         }
     }
     const imageHtml = luckysheetloadingImage(config);
-    const id = "luckysheet-loading-" + uuid.v4();
+    const id = "luckysheet-loading-" + v4();
     const loadingHtml = `
         <div class="luckysheet-loading-content"> 
             <div class="${config.imageClass} luckysheet-loading-image">
