@@ -202,8 +202,6 @@ async function core_rollup() {
         banner: banner
     });
 
-    console.log(`bundle mode: ${production}`)
-
     if(production){
         bundle.write({
             file: 'dist/luckysheet.esm.js',
@@ -220,15 +218,15 @@ async function core_rollup() {
 async function core() {
 
     await require('esbuild').buildSync({
-        format: 'iife',
-        globalName: 'luckysheet',    
+        format: 'esm',
+        globalName: 'luckysheet',
         entryPoints: ['src/index.js'],
         bundle: true,
-        minify: production,
+        minify: false,
         banner: { js: banner },
         target: ['es2015'],
         sourcemap: true,
-        outfile: 'dist/luckysheet.umd.js',
+        outfile: 'dist/luckysheet.esm.js',
       })
 }
 
@@ -297,7 +295,7 @@ function copyStaticCssImages(){
 }
 
 const dev = series(clean, parallel(pluginsCss, plugins, css, pluginsJs, copyStaticHtml, copyStaticFonts, copyStaticAssets, copyStaticImages, copyStaticExpendPlugins, copyStaticDemoData, copyStaticCssImages, core), watcher, serve);
-const build = series(clean, parallel(pluginsCss, plugins, css, pluginsJs, copyStaticHtml, copyStaticFonts, copyStaticAssets, copyStaticImages, copyStaticExpendPlugins, copyStaticDemoData, copyStaticCssImages, core_rollup));
+const build = series(clean, parallel(pluginsCss, plugins, css, pluginsJs, copyStaticHtml, copyStaticFonts, copyStaticAssets, copyStaticImages, copyStaticExpendPlugins, copyStaticDemoData, copyStaticCssImages, core));
 
 exports.dev = dev;
 exports.build = build;
