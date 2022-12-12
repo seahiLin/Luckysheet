@@ -1,9 +1,7 @@
 {
   "name": "hi-luckysheet",
-  "version": "2.1.25",
-  "main": "dist/luckysheet.umd.js",
-  "module": "dist/luckysheet.esm.js",
-  "browser": "dist/luckysheet.esm.js",
+  "version": "2.1.26",
+  "main": "src/index.js",
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",

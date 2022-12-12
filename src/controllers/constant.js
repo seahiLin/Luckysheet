@@ -98,7 +98,7 @@ const gridHTML = function(){
                                                     <div class="luckysheet-grdusedrange"></div>  
                                                     <div class="luckysheet-grdblkflowpush"></div> \${rowHeader}
                                                 </div> 
-                                            </td>  
+                                            </td>
                                             <td valign="top" class="luckysheet-paneswrapper">
                                                 <div class="luckysheet-cell-loading" id="luckysheet-cell-loading">
                                                     <div class="luckysheet-cell-loading-inner">

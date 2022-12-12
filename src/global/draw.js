@@ -113,7 +113,8 @@ function luckysheetDrawgridRowTitle(scrollHeight, drawHeight, offsetTop) {
             let horizonAlignPos = (Store.rowHeaderWidth  - textMetrics.width) / 2;
             let verticalAlignPos = (start_r + (end_r - start_r) / 2 + offsetTop) ;
 
-            luckysheetTableContent.fillText(r + 1, horizonAlignPos/Store.zoomRatio, verticalAlignPos/Store.zoomRatio);
+            // luckysheetTableContent.fillText(r + 1, horizonAlignPos/Store.zoomRatio, verticalAlignPos/Store.zoomRatio);
+            luckysheetTableContent.fillText(r + 1, 10, verticalAlignPos/Store.zoomRatio);
             luckysheetTableContent.restore();//restore scale after draw text
         }
 

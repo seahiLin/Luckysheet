@@ -215,6 +215,7 @@ const server = {
 					})
 				}
 	            if(type == 1){ //send 成功或失败
+                console.log(data.data, 'get data')
                 const oldIndex = data.data.v.index;
                 const sheetToUpdate = Store.luckysheetfile.filter((sheet)=> sheet.index === oldIndex)[0];
                 if (sheetToUpdate !== null) {
@@ -255,6 +256,7 @@ const server = {
 					if(flag) {
 						Store.cooperativeEdit.changeCollaborationSize.forEach(val => {
 							if(val.id == id) {
+                console.log(item, item.v, item.range, 'item')
 								val.v = item.v[0] || item.range[0]
 								val.i = index
 							}
