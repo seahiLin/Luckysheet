@@ -63,11 +63,17 @@ export function rowColumnOperationInitial(){
             row = row_location[1], 
             row_pre = row_location[0], 
             row_index = row_location[2];
+
         let col_index = Store.visibledatacolumn.length - 1, 
             col = Store.visibledatacolumn[col_index], col_pre = 0;
 
         $("#luckysheet-rightclick-menu").hide();
         $("#luckysheet-sheet-list, #luckysheet-rightclick-sheet-menu").hide();
+
+        // mousedown是左键
+        if (event.button === 0) {
+          method.createHookFunction("rowTitleClick", row_location, [event.pageX - $("#luckysheet-rows-h").offset().left, mouse[1]] )
+        }
 
         //mousedown是右键
         if (event.which == "3") {
@@ -426,7 +432,6 @@ export function rowColumnOperationInitial(){
                 if(!cellRightClickConfig.insertRow && !cellRightClickConfig.deleteRow && !cellRightClickConfig.hideRow && !cellRightClickConfig.rowHeight){
                     $$('#luckysheet-cols-rows-data .luckysheet-menuseparator').style.display = 'none';
                 }
-
             }
 
             // 2. 当一个功能菜单块内所有的按钮都隐藏的时候，它顶部的分割线也需要隐藏掉

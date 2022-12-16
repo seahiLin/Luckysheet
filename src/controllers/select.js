@@ -229,7 +229,7 @@ function selectTitlesShow(rangeArr, isRestore = false) {
         let r1 = rowTitleRange[i][0], r2 = rowTitleRange[i][rowTitleRange[i].length - 1];
         let row = rowLocationByIndex(r2)[1], row_pre = rowLocationByIndex(r1)[0];
 
-        $("#luckysheet-rows-h-selected").append('<div class="luckysheet-rows-h-selected" style="top: ' + row_pre + 'px; height: ' + (row - row_pre - 1) + 'px; display: block; background-color: rgba(76, 76, 76, 0.1);"></div>');
+        $("#luckysheet-rows-h-selected").append('<div class="luckysheet-rows-h-selected" style="top: ' + row_pre + 'px; height: ' + (row - row_pre - 1) + 'px; display: block; background-color: rgba(76, 76, 76, 0.1);"><div id="header-action-bar"></div></div>');
     }
 
     //列标题
