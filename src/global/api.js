@@ -6250,10 +6250,8 @@ export function setDataVerification(optionItem, options = {}) {
         file.data = data;
     }
 
-    console.log(currentDataVerification)
-
     if (success && typeof success === 'function') {
-        success();
+        success(dataVerificationCtrl);
     }
 }
 

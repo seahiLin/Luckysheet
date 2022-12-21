@@ -164,6 +164,7 @@ const server = {
 
             }
         } else {
+          if (!method.createHookFunction('sendMessageBefore', d)) return
             let msg = pako.gzip(encodeURIComponent(JSON.stringify(d)), {to: "string"});
             if (_this.websocket != null) {
                 _this.websocket.send(msg);
@@ -256,7 +257,6 @@ const server = {
 					if(flag) {
 						Store.cooperativeEdit.changeCollaborationSize.forEach(val => {
 							if(val.id == id) {
-                console.log(item, item.v, item.range, 'item')
 								val.v = item.v[0] || item.range[0]
 								val.i = index
 							}

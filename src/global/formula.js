@@ -1252,9 +1252,11 @@ const luckysheetformula = {
         }
 
         if (!checkProtectionLocked(r, c, Store.currentSheetIndex)) {
+          console.log(11)
             return;
         }
 
+        console.log(88)
         //数据验证 输入数据无效时禁止输入
         if (dataVerificationCtrl.dataVerification != null) {
             let dvItem = dataVerificationCtrl.dataVerification[r + '_' + c];
@@ -1263,6 +1265,7 @@ const luckysheetformula = {
                 let failureText = dataVerificationCtrl.getFailureText(dvItem);
                 tooltip.info(failureText, '');
                 _this.cancelNormalSelected();
+                console.log(22)
                 return;
             }
         }
@@ -1284,6 +1287,8 @@ const luckysheetformula = {
                 inputText = splitArr.join('\r\n');
             }
         }
+
+        console.log(77)
 
         if (!value && !isCurInline && isPrevInline) {
             delete curv.ct.s;
@@ -1321,26 +1326,34 @@ const luckysheetformula = {
         // Hook function
         if (!method.createHookFunction("cellUpdateBefore", r, c, value, isRefresh)) {
             _this.cancelNormalSelected();
+            console.log(33)
             return;
         }
+
+        console.log(66, method.createHookFunction("cellEqualShouldUpdate", r, c))
 
         if (!isCurInline) {
             if (isRealNull(value) && !isPrevInline) {
                 if (curv == null || (isRealNull(curv.v) && curv.spl == null && curv.f == null)) {
                     _this.cancelNormalSelected();
+                    console.log(65)
                     return;
                 }
             }
-            else if (curv != null && curv.qp != 1) {
+            else if (curv != null && curv.qp != 1 && method.createHookFunction("cellEqualShouldUpdate", r, c)) {
                 if (getObjType(curv) == "object" && (value == curv.f || value == curv.v || value == curv.m)) {
                     _this.cancelNormalSelected();
+                    console.log(64)
                     return;
                 }
                 else if (value == curv) {
                     _this.cancelNormalSelected();
+                    console.log(67)
                     return;
                 }
             }
+
+            console.log(987)
 
             if (getObjType(value) == "string" && value.slice(0, 1) == "=" && value.length > 1) {
 
@@ -1353,6 +1366,7 @@ const luckysheetformula = {
                 }
             }
         }
+        console.log(5544)
 
         window.luckysheet_getcelldata_cache = null;
 
@@ -1360,6 +1374,8 @@ const luckysheetformula = {
 
         let d = editor.deepCopyFlowData(Store.flowdata);
         let dynamicArrayItem = null;  //动态数组
+
+        console.log(44)
 
         if (getObjType(curv) == "object") {
 
