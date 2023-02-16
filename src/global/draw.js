@@ -190,7 +190,8 @@ function luckysheetDrawgridRowTitle(scrollHeight, drawHeight, offsetTop) {
             top:(start_r + offsetTop + firstOffset),
             width:Store.rowHeaderWidth -1,
             height:(end_r - start_r + 1+lastOffset-firstOffset),
-            verticalAlignPos: (start_r + (end_r - start_r) / 2 + offsetTop)
+            verticalAlignPos: (start_r + (end_r - start_r) / 2 + offsetTop),
+            visible: !Store.config["rowhidden"] || Store.config["rowhidden"][r] === undefined
         }, luckysheetTableContent)
 
     }
