@@ -131,12 +131,28 @@ export default function luckysheetHandler() {
         $(this).scrollLeft(scrollLeft);
         event.preventDefault();
     });
+
+    let scrollEnable = true
+    const intersectionObserver = new IntersectionObserver((entries) => {
+      // 如果 intersectionRatio 为 0，则目标在视野外，
+      // 我们不需要做任何事情。
+      if (entries[0].intersectionRatio <= 0) {
+        console.log('set true')
+        scrollEnable = true
+      } else {
+        console.log('set false')
+        scrollEnable = false
+      }
+    });
+    // 开始监听
+    intersectionObserver.observe(document.querySelector('#luckysheet-dataVerification-dropdown-List'));
     
     //滚动监听
     $("#luckysheet-cell-main").scroll(function () {
         
     })
     .mousewheel(function (event, delta) {
+      if (!scrollEnable) return
         event.preventDefault();
     });
 
@@ -145,6 +161,7 @@ export default function luckysheetHandler() {
     const locale_info = _locale.info;
     let prev, mousewheelArrayUniqueTimeout;
     $("#luckysheet-grid-window-1").mousewheel(function (event, delta) {
+      if (!scrollEnable) return
         let scrollLeft = $("#luckysheet-scrollbar-x").scrollLeft(), 
             scrollTop = $("#luckysheet-scrollbar-y").scrollTop();
         let visibledatacolumn_c = Store.visibledatacolumn, 

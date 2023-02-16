@@ -29,7 +29,7 @@ export function luckysheetupdateCell(row_index1, col_index1, d, cover, isnotfocu
     }
 
     // 钩子函数
-    if(!method.createHookFunction('cellEditBefore',Store.luckysheet_select_save)){return;}
+    if(!method.createHookFunction('cellEditBefore',Store.luckysheet_select_save,d,row_index1, col_index1)){return;}
 
     // 编辑单元格时发送指令到后台，通知其他单元格更新为“正在输入”状态
     server.saveParam("mv", Store.currentSheetIndex,  {op:"enterEdit",range:Store.luckysheet_select_save});
