@@ -22,6 +22,8 @@ import luckysheetConfigsetting from './luckysheetConfigsetting';
 import {customImageUpdate} from './imageUpdateCtrl';
 import method from '../global/method';
 
+let closeRetryTime = 10
+
 const server = {
     gridKey: null,
     loadUrl: null,
@@ -188,6 +190,7 @@ const server = {
 	        //连接建立时触发
 	        _this.websocket.onopen = function() {
 	        	console.info(locale().websocket.success);
+            
 	        	hideloading();
 				_this.wxErrorCount = 0;
 
@@ -369,13 +372,18 @@ const server = {
 
 	        //连接关闭时触发
 	        _this.websocket.onclose = function(e){
-				console.info(locale().websocket.close);
-				if(e.code === 1000){
-					clearInterval(_this.retryTimer)
-					_this.retryTimer = null
-				}else{
-					alert(locale().websocket.contact);
-				}
+          console.info(locale().websocket.close);
+          showloading(locale().websocket.close);
+
+          if(e.code === 1000){
+            clearInterval(_this.retryTimer)
+            _this.retryTimer = null
+          }
+
+          if (closeRetryTime > 0) {
+            closeRetryTime -= 1
+            _this.openWebSocket();
+          }
 	        }
 	    }
 	    else{

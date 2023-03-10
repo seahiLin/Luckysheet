@@ -216,18 +216,10 @@ export default function luckysheetHandler() {
             let row_ed,step=Math.round(scrollNum/Store.zoomRatio);
             step = step<1?1:step;
             if(event.deltaY < 0){
-                row_ed = row_st + step;
-                
-                if(row_ed >= visibledatarow_c.length){
-                    row_ed = visibledatarow_c.length - 1;
-                }
+              scrollTop = scrollTop + 4 * Store.zoomRatio
             }
             else{
-                row_ed = row_st - step;
-                
-                if(row_ed < 0){
-                    row_ed = 0;
-                }
+              scrollTop = scrollTop - 4 * Store.zoomRatio
             }
 
             rowscroll = row_ed == 0 ? 0 : visibledatarow_c[row_ed - 1];
@@ -236,21 +228,21 @@ export default function luckysheetHandler() {
                 rowscroll -= luckysheetFreezen.freezenhorizontaldata[0];
             }
 
-            $("#luckysheet-scrollbar-y").scrollTop(rowscroll);
+            $("#luckysheet-scrollbar-y").scrollTop(scrollTop);
         }
-        else if(event.deltaX != 0){
+        if(event.deltaX != 0){
             let col_ed;
             
             // if((isMac && event.deltaX >0 ) || (!isMac && event.deltaX < 0)){
             if(event.deltaX >0){
-                scrollLeft = scrollLeft + 20*Store.zoomRatio;
+                scrollLeft = scrollLeft + 6 *Store.zoomRatio;
                 
                 // if(col_ed >= visibledatacolumn_c.length){
                 //     col_ed = visibledatacolumn_c.length - 1;
                 // }
             }
             else{
-                scrollLeft = scrollLeft - 20*Store.zoomRatio;
+                scrollLeft = scrollLeft - 6 *Store.zoomRatio;
                 
                 // if(col_ed < 0){
                 //     col_ed = 0;

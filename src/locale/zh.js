@@ -7013,7 +7013,7 @@ export default {
         success: 'WebSocket连接成功',
         refresh: 'WebSocket连接发生错误, 请刷新页面！',
         wait: 'WebSocket连接发生错误, 请耐心等待！',
-        close: 'WebSocket连接关闭',
+        close: 'WebSocket连接关闭, 请刷新页面！',
         contact: '服务器通信发生错误，请刷新页面后再试，如若不行请联系管理员！',
         support: '当前浏览器不支持WebSocket',
     }

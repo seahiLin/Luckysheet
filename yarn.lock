@@ -4495,11 +4495,6 @@
     "esrecurse" "^4.1.0"
     "estraverse" "^4.1.1"
 
-"esm@^3.0.0":
-  "integrity" "sha512-U1suiZ2oDVWv4zPO56S0NcR5QriEahGtdN2OR6FiOG4WJvcjBVFB0qI4+eKoWFH483PKGuLuu6V8Z4T5g63UVA=="
-  "resolved" "https://registry.npmmirror.com/esm/-/esm-3.2.25.tgz"
-  "version" "3.2.25"
-
 "esprima@^4.0.0":
   "integrity" "sha512-eGuFFw7Upda+g4p+QHvnW0RyTX/SVeJBDM/gCtMARO0cLuT2HcEKnTPvhjV6aGeqrCB/sbNop0Kszm0jsaWU4A=="
   "resolved" "https://registry.npmmirror.com/esprima/-/esprima-4.0.1.tgz"
@@ -4935,10 +4930,10 @@
   "resolved" "https://registry.npmmirror.com/flagged-respawn/-/flagged-respawn-1.0.1.tgz"
   "version" "1.0.1"
 
-"flatpickr@^4.6.6":
-  "integrity" "sha512-F0azNNi8foVWKSF+8X+ZJzz8r9sE1G4hl06RyceIaLvyltKvDl6vqk9Lm/6AUUCi5HWaIjiUbk7UpeE/fOXOpw=="
-  "resolved" "https://registry.npmmirror.com/flatpickr/-/flatpickr-4.6.9.tgz"
-  "version" "4.6.9"
+"flatpickr@^4.6.13":
+  "integrity" "sha512-97PMG/aywoYpB4IvbvUJi0RQi8vearvU0oov1WW3k0WZPBMrTQVqekSX5CjSG/M4Q3i6A/0FKXC7RyAoAUUSPw=="
+  "resolved" "https://registry.npmjs.org/flatpickr/-/flatpickr-4.6.13.tgz"
+  "version" "4.6.13"
 
 "flush-write-stream@^1.0.0", "flush-write-stream@^1.0.2":
   "integrity" "sha512-3Z4XhFZ3992uIq0XOqb9AreonueSYphE6oYbpt5+3u06JWklbsPkNv3ZKkP9Bz/r+1MWCaMoSQ28P85+1Yc77w=="
