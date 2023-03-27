@@ -19,7 +19,7 @@ import luckysheetsizeauto from './resize';
 import { 
     luckysheetMoveHighlightCell, 
 } from './sheetMove';
-import { selectHightlightShow, selectIsOverlap, selectionCopyShow, luckysheet_count_show,selectHelpboxFill } from './select';
+import { selectHightlightShow, selectIsOverlap, selectionCopyShow, luckysheet_count_show,selectHelpboxFill, seletedHighlistByindex } from './select';
 import selection from './selection';
 import controlHistory from './controlHistory';
 import splitColumn from './splitColumn';
@@ -216,10 +216,10 @@ export default function luckysheetHandler() {
             let row_ed,step=Math.round(scrollNum/Store.zoomRatio);
             step = step<1?1:step;
             if(event.deltaY < 0){
-              scrollTop = scrollTop + 4 * Store.zoomRatio
+              scrollTop = scrollTop + 10 * Store.zoomRatio
             }
             else{
-              scrollTop = scrollTop - 4 * Store.zoomRatio
+              scrollTop = scrollTop - 10 * Store.zoomRatio
             }
 
             rowscroll = row_ed == 0 ? 0 : visibledatarow_c[row_ed - 1];
@@ -235,14 +235,14 @@ export default function luckysheetHandler() {
             
             // if((isMac && event.deltaX >0 ) || (!isMac && event.deltaX < 0)){
             if(event.deltaX >0){
-                scrollLeft = scrollLeft + 6 *Store.zoomRatio;
+                scrollLeft = scrollLeft + 15 *Store.zoomRatio;
                 
                 // if(col_ed >= visibledatacolumn_c.length){
                 //     col_ed = visibledatacolumn_c.length - 1;
                 // }
             }
             else{
-                scrollLeft = scrollLeft - 6 *Store.zoomRatio;
+                scrollLeft = scrollLeft - 15 *Store.zoomRatio;
                 
                 // if(col_ed < 0){
                 //     col_ed = 0;
@@ -369,6 +369,7 @@ export default function luckysheetHandler() {
             "end_c": col 
         }, sheetFile,luckysheetTableContent)){ return; }
 
+        method.createHookFunction("cellAxisHighlight", row_index, col_index, Store.visibledatarow, Store.visibledatacolumn)
 
         //数据验证 单元格聚焦
         dataVerificationCtrl.cellFocus(row_index, col_index, true);

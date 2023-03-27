@@ -138,6 +138,10 @@ const gridHTML = function(){
                                                             <div class="luckysheet-cs-touchhandle luckysheet-cs-touchhandle-lt"><div class="luckysheet-cs-touchhandle-btn"></div></div>
                                                             <div class="luckysheet-cs-touchhandle luckysheet-cs-touchhandle-rb"><div class="luckysheet-cs-touchhandle-btn"></div></div>
                                                         </div>
+                                                        <div id="luckysheet-cell-selected-highlight-vertical" class="luckysheet-cell-selected-highlight-vertical">
+                                                        </div>
+                                                        <div id="luckysheet-cell-selected-highlight-horizontal" class="luckysheet-cell-selected-highlight-horizontal">
+                                                        </div>
                                                     </div>
                                                     <div id="luckysheet-postil-showBoxs"></div>
                                                     <div id="luckysheet-multipleRange-show"></div>  

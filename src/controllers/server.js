@@ -22,8 +22,6 @@ import luckysheetConfigsetting from './luckysheetConfigsetting';
 import {customImageUpdate} from './imageUpdateCtrl';
 import method from '../global/method';
 
-let closeRetryTime = 10
-
 const server = {
     gridKey: null,
     loadUrl: null,
@@ -197,7 +195,7 @@ const server = {
 	            //防止websocket长时间不发送消息导致断连
 				_this.retryTimer = setInterval(function(){
 	                _this.websocket.send("rub");
-	            }, 60000);
+	            }, 40000);
 	        }
 
 	        //客户端接收服务端数据时触发
@@ -378,11 +376,6 @@ const server = {
           if(e.code === 1000){
             clearInterval(_this.retryTimer)
             _this.retryTimer = null
-          }
-
-          if (closeRetryTime > 0) {
-            closeRetryTime -= 1
-            _this.openWebSocket();
           }
 	        }
 	    }
