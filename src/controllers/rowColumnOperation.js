@@ -72,7 +72,7 @@ export function rowColumnOperationInitial(){
 
         // mousedown是左键
         if (event.button === 0) {
-          method.createHookFunction("rowTitleClick", row_location, [event.pageX - $("#luckysheet-rows-h").offset().left, y] )
+          method.createHookFunction("rowTitleClick", row_location, [(event.pageX - $("#luckysheet-rows-h").offset().left) / Store.zoomRatio, y] )
         }
 
         //mousedown是右键

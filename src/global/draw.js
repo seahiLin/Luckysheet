@@ -184,15 +184,18 @@ function luckysheetDrawgridRowTitle(scrollHeight, drawHeight, offsetTop) {
 
         preEndR = end_r;
 
+        luckysheetTableContent.save();
+        luckysheetTableContent.scale(Store.zoomRatio,Store.zoomRatio);
         //列标题单元格渲染前触发，return false 则不渲染该单元格
         method.createHookFunction("rowTitleCellRenderAfter", r+1, {
             r:r,
             top:(start_r + offsetTop + firstOffset),
             width:Store.rowHeaderWidth -1,
             height:(end_r - start_r + 1+lastOffset-firstOffset),
-            verticalAlignPos: (start_r + (end_r - start_r) / 2 + offsetTop),
+            verticalAlignPos: (start_r + (end_r - start_r) / 2 + offsetTop) / Store.zoomRatio,
             visible: !Store.config["rowhidden"] || Store.config["rowhidden"][r] === undefined
         }, luckysheetTableContent)
+        luckysheetTableContent.restore()
 
     }
 
