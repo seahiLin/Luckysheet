@@ -216,10 +216,10 @@ export default function luckysheetHandler() {
             let row_ed,step=Math.round(scrollNum/Store.zoomRatio);
             step = step<1?1:step;
             if(event.deltaY < 0){
-              scrollTop = scrollTop + 10
+              scrollTop = scrollTop + 15
             }
             else{
-              scrollTop = scrollTop - 10
+              scrollTop = scrollTop - 15
             }
 
             rowscroll = row_ed == 0 ? 0 : visibledatarow_c[row_ed - 1];
@@ -235,14 +235,14 @@ export default function luckysheetHandler() {
             
             // if((isMac && event.deltaX >0 ) || (!isMac && event.deltaX < 0)){
             if(event.deltaX >0){
-                scrollLeft = scrollLeft + 15;
+                scrollLeft = scrollLeft + 22;
                 
                 // if(col_ed >= visibledatacolumn_c.length){
                 //     col_ed = visibledatacolumn_c.length - 1;
                 // }
             }
             else{
-                scrollLeft = scrollLeft - 15;
+                scrollLeft = scrollLeft - 22;
                 
                 // if(col_ed < 0){
                 //     col_ed = 0;
