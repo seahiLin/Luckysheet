@@ -358,7 +358,6 @@ export default function luckysheetHandler() {
             col_index_ed = margeset.column[3];
         }
 
-
         //单元格单击之前
         if(!method.createHookFunction("cellMousedownBefore", Store.flowdata[row_index][col_index], {
             r:row_index,
@@ -369,7 +368,6 @@ export default function luckysheetHandler() {
             "end_c": col 
         }, sheetFile,luckysheetTableContent)){ return; }
 
-        method.createHookFunction("cellAxisHighlight", row_index, col_index, Store.visibledatarow, Store.visibledatacolumn)
 
         //数据验证 单元格聚焦
         dataVerificationCtrl.cellFocus(row_index, col_index, true);
@@ -1343,6 +1341,8 @@ export default function luckysheetHandler() {
             
             showrightclickmenu($("#luckysheet-rightclick-menu"), x, y);
         }
+
+        method.createHookFunction("cellAxisHighlight", Store.luckysheet_select_save, Store.visibledatarow, Store.visibledatacolumn)
 
         // 备注：在mousedown中发送光标信息会漏处理部分(选区)范围
         server.saveParam("mv", Store.currentSheetIndex, Store.luckysheet_select_save);
