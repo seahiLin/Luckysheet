@@ -781,65 +781,65 @@ function luckysheetDrawMain(scrollWidth, scrollHeight, drawWidth, drawHeight, of
     }
 
     //合并单元格再处理
-    for(let m = 0; m < mcArr.length; m++){
-        let item = mcArr[m];
-        let r = item.r, 
-            c = item.c, 
-            start_r = item.start_r, 
-            start_c = item.start_c, 
-            end_r = item.end_r-1, 
-            end_c = item.end_c-1;
-        let firstcolumnlen = item.firstcolumnlen;
+    // for(let m = 0; m < mcArr.length; m++){
+    //     let item = mcArr[m];
+    //     let r = item.r, 
+    //         c = item.c, 
+    //         start_r = item.start_r, 
+    //         start_c = item.start_c, 
+    //         end_r = item.end_r-1, 
+    //         end_c = item.end_c-1;
+    //     let firstcolumnlen = item.firstcolumnlen;
 
-        let cell = Store.flowdata[r][c];
-        let value = null;
+    //     let cell = Store.flowdata[r][c];
+    //     let value = null;
 
-        let margeMaindata = cell["mc"];
+    //     let margeMaindata = cell["mc"];
 
-        value = getRealCellValue(margeMaindata.r,margeMaindata.c);
+    //     value = getRealCellValue(margeMaindata.r,margeMaindata.c);
 
-        r = margeMaindata.r;
-        c = margeMaindata.c;
+    //     r = margeMaindata.r;
+    //     c = margeMaindata.c;
 
-        let mainCell = Store.flowdata[r][c];
+    //     let mainCell = Store.flowdata[r][c];
 
-        if (c == 0) {
-            start_c = -scrollWidth;
-        }
-        else {
-            start_c = Store.visibledatacolumn[c - 1] - scrollWidth;
-        }
+    //     if (c == 0) {
+    //         start_c = -scrollWidth;
+    //     }
+    //     else {
+    //         start_c = Store.visibledatacolumn[c - 1] - scrollWidth;
+    //     }
 
-        if (r == 0) {
-            start_r = -scrollHeight - 1;
-        }
-        else {
-            start_r = Store.visibledatarow[r - 1] - scrollHeight - 1;
-        }
+    //     if (r == 0) {
+    //         start_r = -scrollHeight - 1;
+    //     }
+    //     else {
+    //         start_r = Store.visibledatarow[r - 1] - scrollHeight - 1;
+    //     }
 
-        end_r = Store.visibledatarow[r+mainCell["mc"].rs-1] - scrollHeight;
-        end_c = Store.visibledatacolumn[c+mainCell["mc"].cs-1] - scrollWidth;
+    //     end_r = Store.visibledatarow[r+mainCell["mc"].rs-1] - scrollHeight;
+    //     end_c = Store.visibledatacolumn[c+mainCell["mc"].cs-1] - scrollWidth;
 
-        if(value == null || value.toString().length == 0){
-            nullCellRender(r, c, start_r, start_c, end_r, end_c,luckysheetTableContent,af_compute, cf_compute,offsetLeft,offsetTop,dynamicArray_compute,cellOverflowMap, dataset_col_st, dataset_col_ed,scrollHeight,scrollWidth,bodrder05, true);
+    //     if(value == null || value.toString().length == 0){
+    //         nullCellRender(r, c, start_r, start_c, end_r, end_c,luckysheetTableContent,af_compute, cf_compute,offsetLeft,offsetTop,dynamicArray_compute,cellOverflowMap, dataset_col_st, dataset_col_ed,scrollHeight,scrollWidth,bodrder05, true);
             
-            //sparklines渲染
-            let borderfix = menuButton.borderfix(Store.flowdata, r, c);
-            let cellsize = [
-                 (start_c + offsetLeft + borderfix[0]), 
-                 (start_r + offsetTop + borderfix[1]), 
-                 (end_c - start_c - 3 + borderfix[2]), 
-                 (end_r - start_r - 3 - 1  + borderfix[3])
-            ];
-            sparklinesRender(r, c, cellsize[0], cellsize[1], "luckysheetTableContent", luckysheetTableContent);
-        }
-        else{
-            if((r + "_" + c) in dynamicArray_compute){//动态数组公式
-                value = dynamicArray_compute[r + "_" + c].v;
-            }
-            cellRender(r, c, start_r, start_c, end_r, end_c, value, luckysheetTableContent,af_compute, cf_compute,offsetLeft,offsetTop,dynamicArray_compute,cellOverflowMap, dataset_col_st, dataset_col_ed,scrollHeight,scrollWidth,bodrder05, true);
-        }
-    }
+    //         //sparklines渲染
+    //         let borderfix = menuButton.borderfix(Store.flowdata, r, c);
+    //         let cellsize = [
+    //              (start_c + offsetLeft + borderfix[0]), 
+    //              (start_r + offsetTop + borderfix[1]), 
+    //              (end_c - start_c - 3 + borderfix[2]), 
+    //              (end_r - start_r - 3 - 1  + borderfix[3])
+    //         ];
+    //         sparklinesRender(r, c, cellsize[0], cellsize[1], "luckysheetTableContent", luckysheetTableContent);
+    //     }
+    //     else{
+    //         if((r + "_" + c) in dynamicArray_compute){//动态数组公式
+    //             value = dynamicArray_compute[r + "_" + c].v;
+    //         }
+    //         cellRender(r, c, start_r, start_c, end_r, end_c, value, luckysheetTableContent,af_compute, cf_compute,offsetLeft,offsetTop,dynamicArray_compute,cellOverflowMap, dataset_col_st, dataset_col_ed,scrollHeight,scrollWidth,bodrder05, true);
+    //     }
+    // }
 
     //数据透视表边框渲染
     for (let r = dataset_row_st; r <= dataset_row_ed; r++) {

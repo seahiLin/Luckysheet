@@ -930,7 +930,7 @@ function getBorderInfoComputeRange(dataset_row_st,dataset_row_ed,dataset_col_st,
                             let bd_r_top = bd_r - 1;
 
                             if(bd_r_top >= 0 && borderInfoCompute[bd_r_top + "_" + bd_c]){
-                                if(data[bd_r_top] != null && getObjType(data[bd_r_top][bd_c]) == "object" && data[bd_r_top][bd_c].mc != null){
+                                if(data[bd_r_top] != null && getObjType(data[bd_r_top][bd_c]) == "object" && data[bd_r_top][bd_c].mc != null  && false){
                                     let cell_top = data[bd_r_top][bd_c];
 
                                     let mc_t = cfg["merge"][cell_top.mc.r + "_" + cell_top.mc.c];
@@ -1027,7 +1027,7 @@ function getBorderInfoComputeRange(dataset_row_st,dataset_row_ed,dataset_col_st,
                             let bd_r_top = bd_r - 1;
 
                             if(bd_r_top >= 0 && borderInfoCompute[bd_r_top + "_" + bd_c]){
-                                if(data[bd_r_top] != null && getObjType(data[bd_r_top][bd_c]) == "object" && data[bd_r_top][bd_c].mc != null){
+                                if(data[bd_r_top] != null && getObjType(data[bd_r_top][bd_c]) == "object" && data[bd_r_top][bd_c].mc != null && false){
                                     let cell_top = data[bd_r_top][bd_c];
 
                                     let mc_t = cfg["merge"][cell_top.mc.r + "_" + cell_top.mc.c];
