@@ -872,7 +872,7 @@ function getBorderInfoComputeRange(dataset_row_st,dataset_row_ed,dataset_col_st,
                         borderInfoCompute[bd_r + "_" + bd_c] = {};
                     }
 
-                    if(data[bd_r] != null && getObjType(data[bd_r][bd_c]) == "object" && data[bd_r][bd_c].mc != null){
+                    if(data[bd_r] != null && getObjType(data[bd_r][bd_c]) == "object" && data[bd_r][bd_c].mc != null && false){
                         let cell = data[bd_r][bd_c];
                         let mc = cfg["merge"][cell.mc.r + "_" + cell.mc.c] || {};
 

@@ -3805,7 +3805,7 @@ const menuButton = {
         }
         let value = d[row_index][col_index];
         
-        if(getObjType(value) == "object" && ("mc" in value)){
+        if(getObjType(value) == "object" && ("mc" in value) && false){
             let margeMaindata = value["mc"];
             if(margeMaindata==null){
                 console.warn("Merge info is null", row_index, col_index);
