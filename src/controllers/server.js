@@ -234,7 +234,6 @@ const server = {
         Store.result = result;
         let data = new Function('return ' + result.data)();
         method.createHookFunction('cooperativeMessage', data);
-        console.info(data);
         let type = data.type;
         let { message, id } = data;
         // 用户退出时，关闭协同编辑时其提示框

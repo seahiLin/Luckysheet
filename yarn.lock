@@ -4495,6 +4495,11 @@
     "esrecurse" "^4.1.0"
     "estraverse" "^4.1.1"
 
+"esm@^3.0.0":
+  "integrity" "sha512-U1suiZ2oDVWv4zPO56S0NcR5QriEahGtdN2OR6FiOG4WJvcjBVFB0qI4+eKoWFH483PKGuLuu6V8Z4T5g63UVA=="
+  "resolved" "https://registry.npmjs.org/esm/-/esm-3.2.25.tgz"
+  "version" "3.2.25"
+
 "esprima@^4.0.0":
   "integrity" "sha512-eGuFFw7Upda+g4p+QHvnW0RyTX/SVeJBDM/gCtMARO0cLuT2HcEKnTPvhjV6aGeqrCB/sbNop0Kszm0jsaWU4A=="
   "resolved" "https://registry.npmmirror.com/esprima/-/esprima-4.0.1.tgz"
@@ -4930,7 +4935,7 @@
   "resolved" "https://registry.npmmirror.com/flagged-respawn/-/flagged-respawn-1.0.1.tgz"
   "version" "1.0.1"
 
-"flatpickr@^4.6.13":
+"flatpickr@^4.6.6":
   "integrity" "sha512-97PMG/aywoYpB4IvbvUJi0RQi8vearvU0oov1WW3k0WZPBMrTQVqekSX5CjSG/M4Q3i6A/0FKXC7RyAoAUUSPw=="
   "resolved" "https://registry.npmjs.org/flatpickr/-/flatpickr-4.6.13.tgz"
   "version" "4.6.13"
@@ -5680,6 +5685,20 @@
   "integrity" "sha512-l9sfDFsuqtOqKDsQdqrMRk0U85RZc0RtOR9yPI7mRVOa4FsR/BVnZ0shmQRM96Ji99kYZP/7hn1cedc1+ApsTQ=="
   "resolved" "https://registry.npmmirror.com/hex-color-regex/-/hex-color-regex-1.1.0.tgz"
   "version" "1.1.0"
+
+"hi-luckysheet@file:":
+  "resolved" "file:"
+  "version" "2.2.6"
+  dependencies:
+    "@babel/runtime" "^7.12.1"
+    "dayjs" "^1.9.6"
+    "esbuild" "^0.11.6"
+    "escape-html" "^1.0.3"
+    "flatpickr" "^4.6.6"
+    "hi-luckysheet" "file:"
+    "jquery" "^2.2.4"
+    "numeral" "^2.0.6"
+    "pako" "^1.0.11"
 
 "hmac-drbg@^1.0.1":
   "integrity" "sha1-0nRXAQJabHdabFRXk+1QL8DGSaE=sha512-Tti3gMqLdZfhOQY1Mzf/AanLiqh1WTiJgEj26ZuYQ9fbkLomzGchCws4FyrSd4VkpBfiNhaE1On+lOz894jvXg== sha512-Tti3gMqLdZfhOQY1Mzf/AanLiqh1WTiJgEj26ZuYQ9fbkLomzGchCws4FyrSd4VkpBfiNhaE1On+lOz894jvXg=="

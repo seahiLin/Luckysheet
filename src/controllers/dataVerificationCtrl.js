@@ -262,7 +262,7 @@ const dataVerificationCtrl = {
         });
         $(document).off("click.dropdownListItem").on("click.dropdownListItem", "#luckysheet-dataVerification-dropdown-List .dropdown-List-item", function(e) {
             var $item = $(this);
-            let value = e.target.innerText;
+            let value = e.target.textContent;
             if ($item.hasClass('multi')) {
                 $item.toggleClass('checked');
                 value = $.map($("#luckysheet-dataVerification-dropdown-List").children().filter('.checked'), function(el) {

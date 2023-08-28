@@ -43,80 +43,80 @@ function luckysheetextendtable(type, index, value, direction, sheetIndex) {
     }
 
     let merge_new = {};
-    for(let m in cfg["merge"]){
-        let mc = cfg["merge"][m];
+    // for(let m in cfg["merge"]){
+    //     let mc = cfg["merge"][m];
 
-        let r = mc.r,
-            c = mc.c,
-            rs = mc.rs,
-            cs = mc.cs;
+    //     let r = mc.r,
+    //         c = mc.c,
+    //         rs = mc.rs,
+    //         cs = mc.cs;
 
-        if(type == "row"){
-            if(index < r){
-                merge_new[(r + value) + "_" + c] = { "r": r + value, "c": c, "rs": rs, "cs": cs };
-            }
-            // *这里要判断一下rs是否等于1,因为如果这个合并单元格的行数只有一行时r = r+ rs-1,这种情况不应该进行单元格的加高
-            else if (index == r && rs != 1) {
-                if(direction == "lefttop"){
-                    merge_new[(r + value) + "_" + c] = { "r": r + value, "c": c, "rs": rs, "cs": cs };
-                }
-                else{
-                    merge_new[r + "_" + c] = { "r": r, "c": c, "rs": rs + value, "cs": cs };
-                }
-            }
-            else if(index < r + rs - 1){
-                merge_new[r + "_" + c] = { "r": r, "c": c, "rs": rs + value, "cs": cs };
-            }
-            else if(index == r + rs - 1){
-                if(direction == "lefttop"){
-                    if(rs == 1){
-                        merge_new[(r + value) + "_" + c] = { "r": r + value, "c": c, "rs": rs, "cs": cs };
-                    } else {
-                        merge_new[r + "_" + c] = { "r": r, "c": c, "rs": rs + value, "cs": cs };
-                    }
-                }
-                else{
-                    merge_new[r + "_" + c] = { "r": r, "c": c, "rs": rs, "cs": cs };
-                }
-            }
-            else{
-                merge_new[r + "_" + c] = { "r": r, "c": c, "rs": rs, "cs": cs };
-            }
-        }
-        else if(type == "column"){
-            if(index < c){
-                merge_new[r + "_" + (c + value)] = { "r": r, "c": c + value, "rs": rs, "cs": cs };
-            }
-            else if(index == c && cs != 1){
-                if(direction == "lefttop"){
-                    merge_new[r + "_" + (c + value)] = { "r": r, "c": c + value, "rs": rs, "cs": cs };
-                }
-                else{
-                    merge_new[r + "_" + c] = { "r": r, "c": c, "rs": rs, "cs": cs + value };
-                }
-            }
-            else if(index < c + cs - 1){
-                merge_new[r + "_" + c] = { "r": r, "c": c, "rs": rs, "cs": cs + value };
-            }
-            else if(index == c + cs - 1){
-                if(direction == "lefttop"){
-                    // *这是要判断一下这个合并单元格的列宽是否=1,如果cs等于1的情况下,向左插入列，这个合并单元格会右移
-                    if(cs == 1){
-                        merge_new[r + "_" + (c + value)] = { "r": r, "c": c + value, "rs": rs, "cs": cs };
-                    } else {
-                        merge_new[r + "_" + c] = { "r": r, "c": c, "rs": rs, "cs": cs + value };
-                    }
-                }
-                else{
-                    merge_new[r + "_" + c] = { "r": r, "c": c, "rs": rs, "cs": cs };
-                }
-            }
-            else{
-                merge_new[r + "_" + c] = { "r": r, "c": c, "rs": rs, "cs": cs };
-            }
-        }
-    }
-    cfg["merge"] = merge_new;
+    //     if(type == "row"){
+    //         if(index < r){
+    //             merge_new[(r + value) + "_" + c] = { "r": r + value, "c": c, "rs": rs, "cs": cs };
+    //         }
+    //         // *这里要判断一下rs是否等于1,因为如果这个合并单元格的行数只有一行时r = r+ rs-1,这种情况不应该进行单元格的加高
+    //         else if (index == r && rs != 1) {
+    //             if(direction == "lefttop"){
+    //                 merge_new[(r + value) + "_" + c] = { "r": r + value, "c": c, "rs": rs, "cs": cs };
+    //             }
+    //             else{
+    //                 merge_new[r + "_" + c] = { "r": r, "c": c, "rs": rs + value, "cs": cs };
+    //             }
+    //         }
+    //         else if(index < r + rs - 1){
+    //             merge_new[r + "_" + c] = { "r": r, "c": c, "rs": rs + value, "cs": cs };
+    //         }
+    //         else if(index == r + rs - 1){
+    //             if(direction == "lefttop"){
+    //                 if(rs == 1){
+    //                     merge_new[(r + value) + "_" + c] = { "r": r + value, "c": c, "rs": rs, "cs": cs };
+    //                 } else {
+    //                     merge_new[r + "_" + c] = { "r": r, "c": c, "rs": rs + value, "cs": cs };
+    //                 }
+    //             }
+    //             else{
+    //                 merge_new[r + "_" + c] = { "r": r, "c": c, "rs": rs, "cs": cs };
+    //             }
+    //         }
+    //         else{
+    //             merge_new[r + "_" + c] = { "r": r, "c": c, "rs": rs, "cs": cs };
+    //         }
+    //     }
+    //     // else if(type == "column"){
+    //     //     if(index < c){
+    //     //         merge_new[r + "_" + (c + value)] = { "r": r, "c": c + value, "rs": rs, "cs": cs };
+    //     //     }
+    //     //     else if(index == c && cs != 1){
+    //     //         if(direction == "lefttop"){
+    //     //             merge_new[r + "_" + (c + value)] = { "r": r, "c": c + value, "rs": rs, "cs": cs };
+    //     //         }
+    //     //         else{
+    //     //             merge_new[r + "_" + c] = { "r": r, "c": c, "rs": rs, "cs": cs + value };
+    //     //         }
+    //     //     }
+    //     //     else if(index < c + cs - 1){
+    //     //         merge_new[r + "_" + c] = { "r": r, "c": c, "rs": rs, "cs": cs + value };
+    //     //     }
+    //     //     else if(index == c + cs - 1){
+    //     //         if(direction == "lefttop"){
+    //     //             // *这是要判断一下这个合并单元格的列宽是否=1,如果cs等于1的情况下,向左插入列，这个合并单元格会右移
+    //     //             if(cs == 1){
+    //     //                 merge_new[r + "_" + (c + value)] = { "r": r, "c": c + value, "rs": rs, "cs": cs };
+    //     //             } else {
+    //     //                 merge_new[r + "_" + c] = { "r": r, "c": c, "rs": rs, "cs": cs + value };
+    //     //             }
+    //     //         }
+    //     //         else{
+    //     //             merge_new[r + "_" + c] = { "r": r, "c": c, "rs": rs, "cs": cs };
+    //     //         }
+    //     //     }
+    //     //     else{
+    //     //         merge_new[r + "_" + c] = { "r": r, "c": c, "rs": rs, "cs": cs };
+    //     //     }
+    //     // }
+    // }
+    // cfg["merge"] = merge_new;
 
     //公式配置变动
     let calcChain = file.calcChain;

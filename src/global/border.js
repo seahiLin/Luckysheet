@@ -979,7 +979,7 @@ function getBorderInfoComputeRange(dataset_row_st,dataset_row_ed,dataset_col_st,
                             let bd_c_left = bd_c - 1;
 
                             if(bd_c_left >= 0 && borderInfoCompute[bd_r + "_" + bd_c_left]){
-                                if(data[bd_r] != null && getObjType(data[bd_r][bd_c_left]) == "object" && data[bd_r][bd_c_left].mc != null){
+                                if(data[bd_r] != null && getObjType(data[bd_r][bd_c_left]) == "object" && data[bd_r][bd_c_left].mc != null && false){
                                     let cell_left = data[bd_r][bd_c_left];
 
                                     let mc_l = cfg["merge"][cell_left.mc.r + "_" + cell_left.mc.c];
